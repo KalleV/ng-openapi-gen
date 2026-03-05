@@ -9,7 +9,7 @@ const gen = new NgOpenApiGen(spec as OpenAPIObject, options as Options);
 gen.generate();
 
 describe('Generation tests using duplicate-x-operation-name.json', () => {
-  it('index.ts should have all functions and parameters', () => {
+  it('index.ts should have both functions and parameters', () => {
     // Read file options.output + '/index.ts'
     const content = fs.readFileSync(options.output + '/index.ts', 'utf8');
     expect(content).toContain('export { getConsumption as getConsumptionCar }');
@@ -20,7 +20,7 @@ describe('Generation tests using duplicate-x-operation-name.json', () => {
     expect(content).toContain('export type { GetConsumption$Params as GetConsumptionElectricSportsCar$Params }');
   });
 
-  it('functions.ts should have all functions and parameters', () => {
+  it('functions.ts should have both functions and parameters', () => {
     // Read file options.output + '/functions.ts'
     const content = fs.readFileSync(options.output + '/functions.ts', 'utf8');
     expect(content).toContain('export { getConsumption as getConsumptionCar }');
