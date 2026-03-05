@@ -1,7 +1,6 @@
 import $RefParser from '@apidevtools/json-schema-ref-parser';
 import eol from 'eol';
 
-
 // Import centralized OpenAPI types and utilities
 import {
   OpenAPIObject,
