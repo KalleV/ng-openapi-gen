@@ -9,22 +9,24 @@ const gen = new NgOpenApiGen(spec as OpenAPIObject, options as Options);
 gen.generate();
 
 describe('Generation tests using duplicate-x-operation-name.json', () => {
-  it('index.ts should have both functions and parameters', () => {
-    // Read file options.output + '/index.ts'
+  it('index.ts should have all functions and parameters', () => {
     const content = fs.readFileSync(options.output + '/index.ts', 'utf8');
     expect(content).toContain('export { getConsumption as getConsumptionCar }');
     expect(content).toContain('export type { GetConsumption$Params as GetConsumptionCar$Params }');
     expect(content).toContain('export { getConsumption as getConsumptionPlane }');
     expect(content).toContain('export type { GetConsumption$Params as GetConsumptionPlane$Params }');
+    expect(content).toContain('export { getConsumption as getConsumptionElectricSportsCar }');
+    expect(content).toContain('export type { GetConsumption$Params as GetConsumptionElectricSportsCar$Params }');
   });
 
-  it('functions.ts should have both functions and parameters', () => {
-    // Read file options.output + '/functions.ts'
+  it('functions.ts should have all functions and parameters', () => {
     const content = fs.readFileSync(options.output + '/functions.ts', 'utf8');
     expect(content).toContain('export { getConsumption as getConsumptionCar }');
     expect(content).toContain('export type { GetConsumption$Params as GetConsumptionCar$Params }');
     expect(content).toContain('export { getConsumption as getConsumptionPlane }');
     expect(content).toContain('export type { GetConsumption$Params as GetConsumptionPlane$Params }');
+    expect(content).toContain('export { getConsumption as getConsumptionElectricSportsCar }');
+    expect(content).toContain('export type { GetConsumption$Params as GetConsumptionElectricSportsCar$Params }');
   });
 
 });
